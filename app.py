@@ -213,19 +213,27 @@ def add_new_task():
 @login_required
 def edit_task(id):
     if request.method == "GET":
-        task = db.execute("select * from tasks where id = ?", id)[0]
+        task = db.execute("select * from tasks where id = ? and user_id = ?", id, session["user_id"])
         return jsonify(task)
     elif request.method == "POST":
         category_id = request.form.get("category_id")
         task = request.form.get("task")
-        db.execute("update tasks set category_id = ?, task = ? where id = ?", category_id, task, id)
-        return "The task has been successfully edited", 200
+        getCatId = db.execute("select id from categories where id = ? and user_id = ?", category_id, session["user_id"])
+        if not getCatId:
+            return "Category not found", 404
+        else:
+            getTask = db.execute("select task from tasks where task = ? and user_id = ?", task, session["user_id"])
+            if getTask:
+                return "Task already exists", 400
+            else:
+                db.execute("update tasks set category_id = ?, task = ? where id = ?", category_id, task, id)
+                return "The task has been successfully edited", 200
     
 # delete a task
 @app.route("/tasks/<id>/delete", methods=["GET"])
 @login_required
 def delete_task(id):
-    row = db.execute("select * from tasks where id = ?", id)
+    row = db.execute("select * from tasks where id = ? and user_id = ?", id, session["user_id"])
     if not row:
         return "Task not found", 404
     else:
