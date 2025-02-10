@@ -36,10 +36,9 @@
 
 ## Register
 
-Method : POST
-Endpoint : `http://<server ip address:port>/register`
-Body : `form-data`
-
+### Method : POST
+### Endpoint : `http://<server ip address:port>/register`
+### Body : `form-data`
 - username
 - password
 - confirmation
