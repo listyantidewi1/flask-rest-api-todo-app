@@ -158,3 +158,56 @@ def categories_edit(id):
 def categories_delete(id):
     db.execute("delete from categories where id = ?", id)
     return "The category has been successfully deleted", 200
+
+
+# view all tasks
+@app.route("/tasks", methods=["GET"])
+@login_required
+def view_tasks():
+    if request.method=="GET":
+        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id")
+        return jsonify(tasks), 200
+    else:
+        return "Invalid request", 403
+
+# add task
+@app.route("/tasks/add", methods=["GET", "POST"])
+@login_required
+def add_new_task():
+    if request.method=="GET":
+        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id")
+        return jsonify(tasks), 200
+    elif request.method=="POST":
+        if not request.form.get("category_id"):
+            return "Input category", 400
+        elif not request.form.get("task"):
+            return "Input task", 400
+        else:
+            category_id = request.form.get("category_id")
+            task = request.form.get("task")
+            db.execute("insert into tasks (category_id, task) values (?, ?)", category_id, task)
+            return "Task was successfully added", 200
+        
+# edit a task
+@app.route("/tasks/<id>/edit", methods=["GET", "POST"])
+@login_required
+def edit_task(id):
+    if request.method == "GET":
+        task = db.execute("select * from tasks where id = ?", id)[0]
+        return jsonify(task)
+    elif request.method == "POST":
+        category_id = request.form.get("category_id")
+        task = request.form.get("task")
+        db.execute("update tasks set category_id = ?, task = ? where id = ?", category_id, task, id)
+        return "The task has been successfully edited", 200
+    
+# delete a task
+@app.route("/tasks/<id>/delete", methods=["GET"])
+@login_required
+def delete_task(id):
+    row = db.execute("select * from tasks where id = ?", id)
+    if not row:
+        return "Task not found", 404
+    else:
+        db.execute("delete from tasks where id = ?", id)
+        return "The task has been successfully deleted", 200
