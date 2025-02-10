@@ -112,7 +112,7 @@ def logout():
 @login_required
 def view_categories():
     if request.method=="GET":
-        cat = db.execute("select id, category from categories")
+        cat = db.execute("select id, category from categories where user_id = ?", session["user_id"])
         return jsonify(cat), 200
     else:
         return "Invalid request", 403
@@ -122,18 +122,18 @@ def view_categories():
 @login_required
 def categories():
     if request.method=="GET":
-        cat = db.execute("select id, category from categories")
+        cat = db.execute("select id, category from categories where user_id = ?", session["user_id"])
         return jsonify(cat), 200
     elif request.method=="POST":
         if not request.form.get("category"):
             return "Input category", 400
         else:
             newcat = request.form.get("category")
-            rows = db.execute("select category from categories where category = ?", newcat)
+            rows = db.execute("select category from categories where category = ? and user_id = ?", newcat, session["user_id"])
             if rows:
                 return "Category already exists", 400
             else:
-                db.execute("insert into categories (category) values (?)", newcat)
+                db.execute("insert into categories (category, user_id) values (?,?)", newcat, session["user_id"])
                 return "Category was successfully added"
         
 # edit a category
@@ -141,11 +141,11 @@ def categories():
 @login_required
 def categories_edit(id):
     if request.method == "GET":
-        cat = db.execute("select * from categories where id = ?", id)[0]
+        cat = db.execute("select * from categories where id = ? and user_id = ?", id, session["user_id"])[0]
         return jsonify(cat)
     elif request.method == "POST":
         category = request.form.get("category")
-        rows = db.execute("select category from categories where category = ?", category)
+        rows = db.execute("select category from categories where category = ? and user_id = ?", category, session["user_id"])
         if rows:
             return "Category already exists", 400
         else:
