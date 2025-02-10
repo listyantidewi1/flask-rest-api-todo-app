@@ -45,8 +45,7 @@
 - email
 - nama
 
-Responses :
-
+## Responses :
 1.  Kode 200 : `"Registration success"`
 2.  Kode 400 (username kosong) : `"Input username"`
 3.  Kode 400 (password kosong) : `"Input password"`
@@ -54,5 +53,5 @@ Responses :
 5.  Kode 400 (name kosong) : `"Input name"`
 6.  Kode 400 (password dan confirmation tidak sama) : `"Password does not match"`
 
-Contoh :
+## Contoh :
 ![Usage Example (Register)](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/register.png)
