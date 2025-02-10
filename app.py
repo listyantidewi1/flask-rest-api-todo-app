@@ -141,31 +141,41 @@ def categories():
 @login_required
 def categories_edit(id):
     if request.method == "GET":
-        cat = db.execute("select * from categories where id = ? and user_id = ?", id, session["user_id"])[0]
-        return jsonify(cat)
+        cat = db.execute("select * from categories where id = ? and user_id = ?", id, session["user_id"])
+        if cat:
+            return jsonify(cat)
+        else:
+            return "Category not found", 404
     elif request.method == "POST":
         category = request.form.get("category")
-        rows = db.execute("select category from categories where category = ? and user_id = ?", category, session["user_id"])
+        rows = db.execute("select category from categories where id = ? and category = ? and user_id = ?", id, category, session["user_id"])
         if rows:
             return "Category already exists", 400
         else:
-            db.execute("update categories set category = ? where id = ?", category, id)
-            return "The category has been successfully edited", 200
+            updateCat = db.execute("update categories set category = ? where id = ? and user_id = ?", category, id, session["user_id"])
+            if updateCat:
+                return "The category has been successfully edited", 200
+            else:
+                return "Category not found", 404
 
 # delete a category
 @app.route("/categories/<id>/delete", methods=["GET"])
 @login_required
 def categories_delete(id):
-    db.execute("delete from categories where id = ?", id)
-    return "The category has been successfully deleted", 200
-
+    deleteCat = db.execute("delete from categories where id = ? and user_id = ?", id, session["user_id"])
+    if deleteCat:
+        return "The category has been successfully deleted", 200
+    else:
+        return "Category not found", 404
 
 # view all tasks
 @app.route("/tasks", methods=["GET"])
 @login_required
 def view_tasks():
     if request.method=="GET":
-        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id")
+        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ?", session["user_id"])
+        if not tasks:
+            return "No tasks found", 404
         return jsonify(tasks), 200
     else:
         return "Invalid request", 403
@@ -175,7 +185,9 @@ def view_tasks():
 @login_required
 def add_new_task():
     if request.method=="GET":
-        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id")
+        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ?", session["user_id"])
+        if not tasks:
+            return "No tasks found", 404
         return jsonify(tasks), 200
     elif request.method=="POST":
         if not request.form.get("category_id"):
@@ -185,8 +197,16 @@ def add_new_task():
         else:
             category_id = request.form.get("category_id")
             task = request.form.get("task")
-            db.execute("insert into tasks (category_id, task) values (?, ?)", category_id, task)
-            return "Task was successfully added", 200
+            getCatId = db.execute("select id from categories where id = ? and user_id = ?", category_id, session["user_id"])
+            if not getCatId:
+                return "Category not found", 404
+            else:
+                getTask = db.execute("select task from tasks where task = ? and user_id = ?", task, session["user_id"])
+                if getTask:
+                    return "Task already exists", 400
+                else:     
+                    db.execute("insert into tasks (category_id, task, user_id) values (?, ?, ?)", category_id, task, session["user_id"])
+                    return "Task was successfully added", 200
         
 # edit a task
 @app.route("/tasks/<id>/edit", methods=["GET", "POST"])
