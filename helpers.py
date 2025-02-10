@@ -1,4 +1,4 @@
-from flask import redirect, render_template, session
+from flask import session
 from functools import wraps
 
 # handle login as member, adapted from CS50 finance
