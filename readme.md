@@ -11,17 +11,17 @@
 1. Flask :
    Gunakan perintah berikut ini di terminal untuk menginstall Flask (dokumentasi: https://flask.palletsprojects.com/en/stable/installation/)
 
-   pip install Flask
+   `pip install Flask`
 
 2. CS50 :
    Gunakan perintah berikut ini di terminal untuk menginstall CS50 (dokumentasi: https://cs50.readthedocs.io/libraries/cs50/python/)
 
-   pip install cs50
+   `pip install cs50`
 
 3. flask_session :
    Gunakan perintah berikut ini di terminal untuk menginstall flask_session (dokumentasi: https://flask-session.readthedocs.io/en/latest/installation.html)
 
-   pip install Flask-Session
+   `pip install Flask-Session`
 
 # Unduh dan Jalankan Kode Program
 
@@ -29,6 +29,7 @@
 2. Jalankan `git clone https://github.com/listyantidewi1/flask-rest-api-todo-app.git` di terminal
 3. Pindah directory ke directory root project dengan menjalankan `flask-rest-api-todo-app`
 4. Jalankan server dengan perintah `flask run` di terminal
+5. Gunakan IP Address komputer dalam jaringan lokal dan port yang digunakan oleh aplikasi 
 
 # API Documentation
 
