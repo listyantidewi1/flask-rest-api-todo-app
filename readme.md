@@ -30,6 +30,7 @@
 3. Pindah directory ke directory root project dengan menjalankan `flask-rest-api-todo-app`
 4. Jalankan server dengan perintah `flask run` di terminal
 5. Gunakan IP Address komputer dalam jaringan lokal dan port yang digunakan oleh aplikasi 
+![Running Server](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/flask_run.png)
 
 # API Documentation
 
