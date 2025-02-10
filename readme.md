@@ -27,7 +27,7 @@
 
 1. Unduh, install, dan konfigurasi Git https://git-scm.com/book/id/v2/Memulai-Pengaturan-Awal-Git
 2. Jalankan `git clone https://github.com/listyantidewi1/flask-rest-api-todo-app.git` di terminal
-3. Pindah directory ke directory root project dengan menjalankan `flask-rest-api-todo-app`
+3. Pindah directory ke directory root project dengan menjalankan `cd flask-rest-api-todo-app`
 4. Jalankan server dengan perintah `flask run` di terminal
 5. Gunakan IP Address komputer dalam jaringan lokal dan port yang digunakan oleh aplikasi 
 ![Running Server](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/flask_run.png)
