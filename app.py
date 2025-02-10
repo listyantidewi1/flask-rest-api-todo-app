@@ -8,15 +8,7 @@ from werkzeug.utils import secure_filename
 
 from helpers import login_required
 
-
-# configure directory for uploaded files
-UPLOAD_FOLDER = 'static/uploads'
-
-# configure allowed file extensions to be uploaded
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -25,11 +17,6 @@ Session(app)
 
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///todo.sqlite")
-
-# handle file upload
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.after_request
 def after_request(response):
