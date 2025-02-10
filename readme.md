@@ -55,3 +55,18 @@
 
 ### Contoh :
 ![Usage Example (Register)](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/register.png)
+
+
+## Login
+
+### Method  : POST
+### Endpoint    : `http://<server ip address:port>/login`
+### Body : `form-data`
+- username
+- password
+
+### Responses :
+1.  Kode 200 : `"You were sucessfully logged in"`
+2.  Kode 403 (username kosong) : `"Input username"`
+3.  Kode 403 (password kosong) : `"Input password"`
+4.  Kode 400 (username / password salah) : `"Wrong username or password"`
