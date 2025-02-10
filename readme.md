@@ -52,3 +52,6 @@ Responses :
 4.  Kode 400 (email kosong) : `"Input email"`
 5.  Kode 400 (name kosong) : `"Input name"`
 6.  Kode 400 (password dan confirmation tidak sama) : `"Password does not match"`
+
+Contoh :
+![Usage Example (Register)](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/register.png)
