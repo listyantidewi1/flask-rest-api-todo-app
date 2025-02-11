@@ -132,3 +132,31 @@ Kode 200 : Daftar semua kategori dalam format JSON
 ### Body       : none
 ### Response   : 
 1. Kode 200    : Daftar semua kategori dalam format JSON
+
+
+## Edit Category
+
+### Method     : GET
+### Endpoint   : `http://<server ip address:port>/categories/<id_category>/edit`
+### Body       : none
+
+### Response   :
+1. Kode 200    : Kategori yang dipilih untuk diubah (JSON) 
+2. Kode 404 (kategori yang dipilih tidak ditemukan)    : `"Category not found"`
+
+### Contoh     :
+![`GET` edit category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_category_get.png)
+
+### Method     : POST
+### Endpoint   : `http://<server ip address:port>/categories/<id_category>/edit`
+### Body       : form-data
+
+- category
+
+### Response   :
+1. Kode 200    : `"The category has been successfully edited` 
+2. Kode 404 (kategori yang dipilih tidak ditemukan)    : `"Category not found"`
+3. Kode 400 (kategori sudah tersedia) : `"Category already exists"`
+
+### Contoh     :
+![`POST` Edit category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_category_post.png)
