@@ -172,7 +172,7 @@ Kode 200 : Daftar semua kategori dalam format JSON
 
 ### Responses :
 
-1. Kode 200 : `"The category has been successfully edited`
+1. Kode 200 : `"The category has been successfully edited"`
 2. Kode 404 (kategori yang dipilih tidak ditemukan) : `"Category not found"`
 3. Kode 400 (kategori sudah tersedia) : `"Category already exists"`
 
@@ -273,3 +273,58 @@ Kode 200 : Daftar semua kategori dalam format JSON
 ### Contoh :
 
 ![Add task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/uncomplete_a_task.png)
+
+
+## Edit a Task
+
+### Method : GET
+
+### Endpoint : `http://<server ip address:port>/tasks/<id>/edit`
+
+### Body : none
+
+### Responses :
+
+1. Kode 200 : Task yang dipilih untuk diubah (JSON)
+2. Kode 404 (Task yang dipilih tidak ditemukan) : `"Task not found"`
+
+### Contoh :
+
+![`GET` edit task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_task_get.png)
+
+### Method : POST
+
+### Endpoint : `http://<server ip address:port>/tasks/<id>/edit`
+
+### Body : form-data
+
+- category_id
+- task
+
+### Responses :
+
+1. Kode 200 : `"The task has been successfully edited"`
+2. Kode 404 (kategori yang dipilih tidak ditemukan) : `"Category not found"`
+3. Kode 400 (task yang diisi sudah tersedia) : `"Task already exists"`
+
+### Contoh :
+
+![`POST` Edit task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_task_post.png)
+
+
+## Delete A Task
+
+### Method : GET
+
+### Endpoint : `http://<server ip address:port>/tasks/<id>/delete`
+
+### Body : none
+
+### Responses :
+
+1. Kode 200 : `"The task has been successfully deleted"`
+2. Kode 404 (ID task tidak ditemukan) : `"Task not found"`
+
+### Contoh :
+
+![Delete task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_task.png)

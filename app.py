@@ -230,7 +230,10 @@ def add_new_task():
 def edit_task(id):
     if request.method == "GET":
         task = db.execute("select * from tasks where id = ? and user_id = ?", id, session["user_id"])
-        return jsonify(task)
+        if not task:
+            return "Task not found", 404
+        else:
+            return jsonify(task)
     elif request.method == "POST":
         category_id = request.form.get("category_id")
         task = request.form.get("task")
