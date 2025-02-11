@@ -195,3 +195,23 @@ Kode 200 : Daftar semua kategori dalam format JSON
 
 ### Contoh     :
 ![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_tasks.png)
+
+
+
+
+## Add a New Task
+
+### Method     : POST
+### Endpoint   : `http://<server ip address:port>/tasks/add`
+### Body       : form-data
+
+### Responses  :
+1. Kode 200    : `"Task was successfully added"`
+2. Kode 400 (ID Category belum diisi) : `"Input category"`
+3. Kode 400 (Task belum diisi) : `"Input task"`
+4. Kode 404 (ID Category tidak ditemukan) : `"
+5. Kode 404 (ID Category tidak ditemukan) : `"Category not found"`
+6. Kode 400 (Task yang dimasukkan sudah tersedia) : `"Task already exists"`
+
+### Contoh     :
+![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_task.png)
