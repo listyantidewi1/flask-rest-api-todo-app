@@ -36,11 +36,9 @@
 
 ## Register
 
-### Method : POST
-
-### Endpoint : `http://<server ip address:port>/register`
-
-### Body : `form-data`
+### Method     : POST
+### Endpoint   : `http://<server ip address:port>/register`
+### Body       : `form-data`
 
 - username
 - password
@@ -61,13 +59,12 @@
 
 ![Usage Example (Register)](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/register.png)
 
+
 ## Login
 
-### Method : POST
-
-### Endpoint : `http://<server ip address:port>/login`
-
-### Body : `form-data`
+### Method     : POST
+### Endpoint   : `http://<server ip address:port>/login`
+### Body       : `form-data`
 
 - username
 - password
@@ -83,13 +80,12 @@
 
 ![Login](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/login.png)
 
+
 ## Logout
 
-### Method : GET
-
-### Endpoint : `http://<server ip address:port>/logout`
-
-### Body : None
+### Method     : GET
+### Endpoint   : `http://<server ip address:port>/logout`
+### Body       : None
 
 ### Responses :
 
@@ -98,3 +94,18 @@ Kode 200 : `"You have successfully logged out"`
 ### Contoh :
 
 ![Logout](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/logout.png)
+
+
+## View All Categories
+
+### Method     : POST
+### Endpoint   : `http://<server ip address:port>/categories`
+### Body       : none
+
+### Responses :
+
+Kode 200 : Daftar semua kategori dalam format JSON
+
+### Contoh :
+
+![View all categories](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_categories.png)
