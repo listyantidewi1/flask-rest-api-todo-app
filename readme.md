@@ -151,6 +151,7 @@ Kode 200 : `"You have successfully logged out"`
 ### Responses :
 
 Kode 200 : Daftar semua kategori dalam format JSON
+Kode 404 (belum ada kategori) : `"No categories found"`
 
 ### Contoh :
 
