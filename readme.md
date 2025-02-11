@@ -49,7 +49,7 @@ CREATE TABLE "tasks" (
 	"id"	INTEGER NOT NULL,
 	"category_id"	INTEGER NOT NULL,
 	"task"	TEXT NOT NULL,
-	"user_id"	INTEGER NOT NULL DEFAULT 1,
+	"user_id"	INTEGER NOT NULL,
 	"status"	TEXT NOT NULL DEFAULT 'not complete',
 	PRIMARY KEY("id" AUTOINCREMENT),
 	FOREIGN KEY("category_id") REFERENCES "categories"("id"),
