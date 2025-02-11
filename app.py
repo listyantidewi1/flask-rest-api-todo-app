@@ -100,7 +100,10 @@ def logout():
 def view_categories():
     if request.method=="GET":
         cat = db.execute("select id, category from categories where user_id = ?", session["user_id"])
-        return jsonify(cat), 200
+        if not cat:
+            return "No categories found", 404
+        else:
+            return jsonify(cat), 200
     else:
         return "Invalid request", 403
 
