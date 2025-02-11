@@ -234,4 +234,42 @@ Kode 200 : Daftar semua kategori dalam format JSON
 
 ### Contoh :
 
-![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_task.png)
+![Add task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_task.png)
+
+## Complete a Task
+
+### Method : GET
+
+### Endpoint : `http://<server ip address:port>/tasks/<id>/complete`
+
+### Body : none
+
+### Responses :
+
+1. Kode 200 : `"The task has been successfully completed"`
+2. Kode 404 (task tidak ditemukan) : `"Task not found"`
+3. Kode 400 (task sudah diselesaikan) : `"The task is already completed"`
+4. Kode 403 (Invalid Request Method) : `"Invalid request"`
+
+### Contoh :
+
+![Add task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/complete_a_task.png)
+
+## Undo Completing a Task
+
+### Method : GET
+
+### Endpoint : `http://<server ip address:port>/tasks/<id>/uncomplete`
+
+### Body : none
+
+### Responses :
+
+1. Kode 200 : `"The task status has been set to 'not complete'"`
+2. Kode 404 (task tidak ditemukan) : `"Task not found"`
+3. Kode 400 (task sudah diselesaikan) : `"The task is already set to 'not complete'"`
+4. Kode 403 (Invalid Request Method) : `"Invalid request"`
+
+### Contoh :
+
+![Add task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/uncomplete_a_task.png)
