@@ -163,7 +163,8 @@ def view_tasks():
         tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ?", session["user_id"])
         if not tasks:
             return "No tasks found", 404
-        return jsonify(tasks), 200
+        else:
+            return jsonify(tasks), 200
     else:
         return "Invalid request", 403
 

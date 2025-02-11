@@ -179,3 +179,19 @@ Kode 200 : Daftar semua kategori dalam format JSON
 
 ### Contoh     :
 ![Delete category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_category.png)
+
+
+
+## View All Tasks
+
+### Method     : GET
+### Endpoint   : `http://<server ip address:port>/tasks`
+### Body       : none
+
+### Responses  :
+1. Kode 200    : Daftar semua tasks (JSON)
+2. Kode 404 (kosong/tidak ada task tersimpan) : `"No tasks found"`
+3. Kode 403 (Invalid request method)   : `"Invalid request"`
+
+### Contoh     :
+![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_tasks.png)
