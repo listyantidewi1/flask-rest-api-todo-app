@@ -60,6 +60,7 @@
 ![Usage Example (Register)](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/register.png)
 
 
+
 ## Login
 
 ### Method     : POST
@@ -81,6 +82,7 @@
 ![Login](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/login.png)
 
 
+
 ## Logout
 
 ### Method     : GET
@@ -94,6 +96,7 @@ Kode 200 : `"You have successfully logged out"`
 ### Contoh :
 
 ![Logout](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/logout.png)
+
 
 
 ## View All Categories
@@ -132,6 +135,7 @@ Kode 200 : Daftar semua kategori dalam format JSON
 ### Body       : none
 ### Response   : 
 1. Kode 200    : Daftar semua kategori dalam format JSON
+
 
 
 ## Edit Category
