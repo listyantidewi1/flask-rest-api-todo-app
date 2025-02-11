@@ -122,7 +122,7 @@ Kode 200 : Daftar semua kategori dalam format JSON
 
 - category
 
-### Response   :
+### Responses   :
 1. Kode 200 : `"Category was successfully added"`
 2. Kode 400 (category belum diisi) : `"Input category"`
 3. Kode 400 (category sudah tersedia) : `"Category already exists"`
@@ -141,10 +141,10 @@ Kode 200 : Daftar semua kategori dalam format JSON
 ## Edit Category
 
 ### Method     : GET
-### Endpoint   : `http://<server ip address:port>/categories/<id_category>/edit`
+### Endpoint   : `http://<server ip address:port>/categories/<id>/edit`
 ### Body       : none
 
-### Response   :
+### Responses   :
 1. Kode 200    : Kategori yang dipilih untuk diubah (JSON) 
 2. Kode 404 (kategori yang dipilih tidak ditemukan)    : `"Category not found"`
 
@@ -152,15 +152,30 @@ Kode 200 : Daftar semua kategori dalam format JSON
 ![`GET` edit category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_category_get.png)
 
 ### Method     : POST
-### Endpoint   : `http://<server ip address:port>/categories/<id_category>/edit`
+### Endpoint   : `http://<server ip address:port>/categories/<id>/edit`
 ### Body       : form-data
 
 - category
 
-### Response   :
+### Responses   :
 1. Kode 200    : `"The category has been successfully edited` 
 2. Kode 404 (kategori yang dipilih tidak ditemukan)    : `"Category not found"`
 3. Kode 400 (kategori sudah tersedia) : `"Category already exists"`
 
 ### Contoh     :
 ![`POST` Edit category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_category_post.png)
+
+
+
+## Delete A Category
+
+### Method     : GET
+### Endpoint   : `http://<server ip address:port>/categories/<id>/delete`
+### Body       : none
+
+### Responses  :
+1. Kode 200    : `"The category has been successfully deleted"`
+2. Kode 404 (ID category tidak ditemukan)   : `"Category not found"`
+
+### Contoh     :
+![Delete category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_category_post.png)
