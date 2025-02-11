@@ -160,7 +160,34 @@ def categories_delete(id):
 @login_required
 def view_tasks():
     if request.method=="GET":
-        tasks = db.execute("select tasks.id, category_id, categories.category, task from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ?", session["user_id"])
+        tasks = db.execute("select tasks.id, category_id, categories.category, task, status from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ?", session["user_id"])
+        if not tasks:
+            return "No tasks found", 404
+        else:
+            return jsonify(tasks), 200
+    else:
+        return "Invalid request", 403
+    
+
+# view completed tasks
+@app.route("/tasks/complete", methods=["GET"])
+@login_required
+def view_complete_tasks():
+    if request.method=="GET":
+        tasks = db.execute("select tasks.id, category_id, categories.category, task, status from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ? and status = 'complete'", session["user_id"])
+        if not tasks:
+            return "No tasks found", 404
+        else:
+            return jsonify(tasks), 200
+    else:
+        return "Invalid request", 403
+    
+# view not complete tasks
+@app.route("/tasks/notcomplete", methods=["GET"])
+@login_required
+def view_not_complete_tasks():
+    if request.method=="GET":
+        tasks = db.execute("select tasks.id, category_id, categories.category, task, status from tasks inner join categories on tasks.category_id = categories.id where tasks.user_id = ? and status = 'not complete'", session["user_id"])
         if not tasks:
             return "No tasks found", 404
         else:
@@ -217,6 +244,43 @@ def edit_task(id):
             else:
                 db.execute("update tasks set category_id = ?, task = ? where id = ?", category_id, task, id)
                 return "The task has been successfully edited", 200
+            
+# complete a task
+@app.route("/tasks/<id>/complete", methods=["GET"])
+@login_required
+def complete_task(id):
+    if request.method == "GET":
+        task = db.execute("select * from tasks where id = ? and user_id = ?", id, session["user_id"])
+        if not task:
+            return "Task not found", 404
+        else:
+            check = db.execute("select status from tasks where id = ?", id)
+            if check[0]["status"] == "complete":
+                return "The task is already completed", 400
+            else:
+                db.execute("update tasks set status = 'complete' where id = ?", id)
+                return "The task has been successfully completed", 200
+    else:
+        return "Invalid request", 403
+    
+# undo complete a task
+@app.route("/tasks/<id>/uncomplete", methods=["GET"])
+@login_required
+def uncomplete_task(id):
+    if request.method == "GET":
+        task = db.execute("select * from tasks where id = ? and user_id = ?", id, session["user_id"])
+        if not task:
+            return "Task not found", 404
+        else:
+            check = db.execute("select status from tasks where id = ?", id)
+            if check[0]["status"] == "not complete":
+                return "The task is already set to 'not complete'", 400
+            else:
+                db.execute("update tasks set status = 'not complete' where id = ?", id)
+                return "The task status has been set to 'not complete'", 200
+    else:
+        return "Invalid request", 403
+    
     
 # delete a task
 @app.route("/tasks/<id>/delete", methods=["GET"])

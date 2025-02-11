@@ -36,9 +36,11 @@
 
 ## Register
 
-### Method     : POST
-### Endpoint   : `http://<server ip address:port>/register`
-### Body       : `form-data`
+### Method : POST
+
+### Endpoint : `http://<server ip address:port>/register`
+
+### Body : `form-data`
 
 - username
 - password
@@ -59,13 +61,13 @@
 
 ![Usage Example (Register)](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/register.png)
 
-
-
 ## Login
 
-### Method     : POST
-### Endpoint   : `http://<server ip address:port>/login`
-### Body       : `form-data`
+### Method : POST
+
+### Endpoint : `http://<server ip address:port>/login`
+
+### Body : `form-data`
 
 - username
 - password
@@ -81,13 +83,13 @@
 
 ![Login](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/login.png)
 
-
-
 ## Logout
 
-### Method     : GET
-### Endpoint   : `http://<server ip address:port>/logout`
-### Body       : None
+### Method : GET
+
+### Endpoint : `http://<server ip address:port>/logout`
+
+### Body : None
 
 ### Responses :
 
@@ -97,13 +99,13 @@ Kode 200 : `"You have successfully logged out"`
 
 ![Logout](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/logout.png)
 
-
-
 ## View All Categories
 
-### Method     : POST
-### Endpoint   : `http://<server ip address:port>/categories`
-### Body       : none
+### Method : POST
+
+### Endpoint : `http://<server ip address:port>/categories`
+
+### Body : none
 
 ### Responses :
 
@@ -113,105 +115,123 @@ Kode 200 : Daftar semua kategori dalam format JSON
 
 ![View all categories](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_categories.png)
 
-
 ## Add New Category
 
-### Method     : POST
-### Endpoint   : `http://<server ip address:port>/categories/add`
-### Body       : form-data
+### Method : POST
+
+### Endpoint : `http://<server ip address:port>/categories/add`
+
+### Body : form-data
 
 - category
 
-### Responses   :
+### Responses :
+
 1. Kode 200 : `"Category was successfully added"`
 2. Kode 400 (category belum diisi) : `"Input category"`
 3. Kode 400 (category sudah tersedia) : `"Category already exists"`
 
-### Contoh  :
+### Contoh :
+
 ![Add new category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_category.png)
 
-### Method     : GET
-### Endpoint   : `http://<server ip address:port>/categories/add`
-### Body       : none
-### Response   : 
-1. Kode 200    : Daftar semua kategori dalam format JSON
+### Method : GET
 
+### Endpoint : `http://<server ip address:port>/categories/add`
 
+### Body : none
+
+### Response :
+
+1. Kode 200 : Daftar semua kategori dalam format JSON
 
 ## Edit Category
 
-### Method     : GET
-### Endpoint   : `http://<server ip address:port>/categories/<id>/edit`
-### Body       : none
+### Method : GET
 
-### Responses   :
-1. Kode 200    : Kategori yang dipilih untuk diubah (JSON) 
-2. Kode 404 (kategori yang dipilih tidak ditemukan)    : `"Category not found"`
+### Endpoint : `http://<server ip address:port>/categories/<id>/edit`
 
-### Contoh     :
+### Body : none
+
+### Responses :
+
+1. Kode 200 : Kategori yang dipilih untuk diubah (JSON)
+2. Kode 404 (kategori yang dipilih tidak ditemukan) : `"Category not found"`
+
+### Contoh :
+
 ![`GET` edit category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_category_get.png)
 
-### Method     : POST
-### Endpoint   : `http://<server ip address:port>/categories/<id>/edit`
-### Body       : form-data
+### Method : POST
+
+### Endpoint : `http://<server ip address:port>/categories/<id>/edit`
+
+### Body : form-data
 
 - category
 
-### Responses   :
-1. Kode 200    : `"The category has been successfully edited` 
-2. Kode 404 (kategori yang dipilih tidak ditemukan)    : `"Category not found"`
+### Responses :
+
+1. Kode 200 : `"The category has been successfully edited`
+2. Kode 404 (kategori yang dipilih tidak ditemukan) : `"Category not found"`
 3. Kode 400 (kategori sudah tersedia) : `"Category already exists"`
 
-### Contoh     :
+### Contoh :
+
 ![`POST` Edit category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_category_post.png)
-
-
 
 ## Delete A Category
 
-### Method     : GET
-### Endpoint   : `http://<server ip address:port>/categories/<id>/delete`
-### Body       : none
+### Method : GET
 
-### Responses  :
-1. Kode 200    : `"The category has been successfully deleted"`
-2. Kode 404 (ID category tidak ditemukan)   : `"Category not found"`
+### Endpoint : `http://<server ip address:port>/categories/<id>/delete`
 
-### Contoh     :
+### Body : none
+
+### Responses :
+
+1. Kode 200 : `"The category has been successfully deleted"`
+2. Kode 404 (ID category tidak ditemukan) : `"Category not found"`
+
+### Contoh :
+
 ![Delete category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_category.png)
-
-
 
 ## View All Tasks
 
-### Method     : GET
-### Endpoint   : `http://<server ip address:port>/tasks`
-### Body       : none
+### Method : GET
 
-### Responses  :
-1. Kode 200    : Daftar semua tasks (JSON)
+### Endpoint : `http://<server ip address:port>/tasks`
+
+### Body : none
+
+### Responses :
+
+1. Kode 200 : Daftar semua tasks (JSON)
 2. Kode 404 (kosong/tidak ada task tersimpan) : `"No tasks found"`
-3. Kode 403 (Invalid request method)   : `"Invalid request"`
+3. Kode 403 (Invalid request method) : `"Invalid request"`
 
-### Contoh     :
-![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_tasks.png)
+### Contoh :
 
-
-
+![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_tasks_rev.png)
 
 ## Add a New Task
 
-### Method     : POST
-### Endpoint   : `http://<server ip address:port>/tasks/add`
-### Body       : form-data
+### Method : POST
 
-### Responses  :
-1. Kode 200    : `"Task was successfully added"`
+### Endpoint : `http://<server ip address:port>/tasks/add`
+
+### Body : form-data
+
+### Responses :
+
+1. Kode 200 : `"Task was successfully added"`
 2. Kode 400 (ID Category belum diisi) : `"Input category"`
 3. Kode 400 (Task belum diisi) : `"Input task"`
 4. Kode 404 (ID Category tidak ditemukan) : `"
 5. Kode 404 (ID Category tidak ditemukan) : `"Category not found"`
 6. Kode 400 (Task yang dimasukkan sudah tersedia) : `"Task already exists"`
 
-### Contoh     :
+### Contoh :
+
 ![View all task](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_task.png)
