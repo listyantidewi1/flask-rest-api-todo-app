@@ -270,9 +270,8 @@ Kode 404 (belum ada kategori) : `"No categories found"`
 1. Kode 200 : `"Task was successfully added"`
 2. Kode 400 (ID Category belum diisi) : `"Input category"`
 3. Kode 400 (Task belum diisi) : `"Input task"`
-4. Kode 404 (ID Category tidak ditemukan) : `"
-5. Kode 404 (ID Category tidak ditemukan) : `"Category not found"`
-6. Kode 400 (Task yang dimasukkan sudah tersedia) : `"Task already exists"`
+4. Kode 404 (ID Category tidak ditemukan) : `"Category not found"`
+5. Kode 400 (Task yang dimasukkan sudah tersedia) : `"Task already exists"`
 
 ### Contoh :
 
