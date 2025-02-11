@@ -109,3 +109,26 @@ Kode 200 : Daftar semua kategori dalam format JSON
 ### Contoh :
 
 ![View all categories](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_categories.png)
+
+
+## Add New Category
+
+### Method     : POST
+### Endpoint   : `http://<server ip address:port>/categories/add`
+### Body       : form-data
+
+- category
+
+### Response   :
+1. Kode 200 : `"Category was successfully added"`
+2. Kode 400 (category belum diisi) : `"Input category"`
+3. Kode 400 (category sudah tersedia) : `"Category already exists"`
+
+### Contoh  :
+![Add new category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_category.png)
+
+### Method     : GET
+### Endpoint   : `http://<server ip address:port>/categories/add`
+### Body       : none
+### Response   : 
+1. Kode 200    : Daftar semua kategori dalam format JSON
