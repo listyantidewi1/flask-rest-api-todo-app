@@ -34,16 +34,15 @@
 
 # Database Schema
 
-`CREATE TABLE "categories" (
+```CREATE TABLE "categories" (
 	"id"	INTEGER NOT NULL,
 	"category"	TEXT NOT NULL,
 	"user_id"	INTEGER NOT NULL DEFAULT 1,
 	PRIMARY KEY("id" AUTOINCREMENT),
 	FOREIGN KEY("user_id") REFERENCES "users"("id")
-)`
+)```
 
-
-`CREATE TABLE "tasks" (
+```CREATE TABLE "tasks" (
 	"id"	INTEGER NOT NULL,
 	"category_id"	INTEGER NOT NULL,
 	"task"	TEXT NOT NULL,
@@ -53,16 +52,16 @@
 	FOREIGN KEY("category_id") REFERENCES "categories"("id"),
 	FOREIGN KEY("user_id") REFERENCES "users"("id"),
 	CHECK(status IN ('complete','not complete'))
-)`
+)```
 
-`CREATE TABLE "users" (
+```CREATE TABLE "users" (
 	"id"	INTEGER NOT NULL,
 	"username"	TEXT NOT NULL,
 	"password"	TEXT NOT NULL,
 	"email"	TEXT NOT NULL,
 	"name"	TEXT NOT NULL,
 	PRIMARY KEY("id" AUTOINCREMENT)
-)`
+)```
 
 Gunakan DB Browser SQLite untuk menampilkan struktur database dalam mode GUI
 
