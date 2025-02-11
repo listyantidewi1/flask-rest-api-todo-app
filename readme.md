@@ -87,7 +87,7 @@ Gunakan DB Browser SQLite untuk menampilkan struktur database dalam mode GUI
 - password
 - confirmation
 - email
-- nama
+- name
 
 ### Responses :
 
