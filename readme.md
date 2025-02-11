@@ -178,4 +178,4 @@ Kode 200 : Daftar semua kategori dalam format JSON
 2. Kode 404 (ID category tidak ditemukan)   : `"Category not found"`
 
 ### Contoh     :
-![Delete category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_category_post.png)
+![Delete category](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_category.png)
