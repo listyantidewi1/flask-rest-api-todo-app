@@ -86,7 +86,7 @@ All endpoints require a logged-in user session.
 - `password` (string) - Required
 - `confirmation` (string) - Must match `password`
 - `email` (string) - Required
-- `name` (string) - Required\
+- `name` (string) - Required
   
 **Response:**
 - `200 OK` - Registration successful
@@ -102,7 +102,7 @@ All endpoints require a logged-in user session.
 **Parameters:**
 
 - `username` (string) - Required
-- `password` (string) - Required\
+- `password` (string) - Required
   
 **Response:**
 - `200 OK` - Login successful
@@ -145,7 +145,7 @@ All endpoints require a logged-in user session.
 
 **Parameters:**
 
-- `category` (string) - Required\
+- `category` (string) - Required
 
 **Response:**
 - `200 OK` - Category added successfully
@@ -222,7 +222,7 @@ All endpoints require a logged-in user session.
 **Parameters:**
 
 - `task_id` (integer) - Required
-- `new_task` (string) - Required\
+- `new_task` (string) - Required
 
 **Response:**
 - `200 OK` - Task updated successfully
@@ -236,7 +236,7 @@ All endpoints require a logged-in user session.
 **Description:** Delete a task.
 **Parameters:**
 
-- `task_id` (integer) - Required\
+- `task_id` (integer) - Required
 
 **Response:**
 - `200 OK` - Task deleted successfully
@@ -264,7 +264,7 @@ All endpoints require a logged-in user session.
 **Description:** Undo a completed task.
 **Parameters:**\
 
-- `task_id` (integer) - Required\
+- `task_id` (integer) - Required
 
 **Response:**
 - `200 OK` - Task marked as not complete
