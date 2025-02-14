@@ -79,7 +79,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/register`\
 **Method:** `POST`\
-**Description:** Register a new user.\
+**Description:** Register a new user.
 **Parameters:**
 
 - `username` (string) - Required
@@ -98,7 +98,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/login`\
 **Method:** `POST`\
-**Description:** Log in an existing user.\
+**Description:** Log in an existing user.
 **Parameters:**
 
 - `username` (string) - Required
@@ -114,7 +114,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/logout`\
 **Method:** `GET`\
-**Description:** Log out the current user.\
+**Description:** Log out the current user.
 
 **Response:**
 
@@ -128,7 +128,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/categories`\
 **Method:** `GET`\
-**Description:** Retrieve all categories for the logged-in user.\
+**Description:** Retrieve all categories for the logged-in user.
 
 **Response:**
 
@@ -141,7 +141,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/categories`\
 **Method:** `POST`\
-**Description:** Add a new category.\
+**Description:** Add a new category.
 
 **Parameters:**
 
@@ -157,7 +157,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/categories`\
 **Method:** `PUT`\
-**Description:** Edit an existing category.\
+**Description:** Edit an existing category.
 
 **Parameters:**
 
@@ -173,7 +173,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/categories`\
 **Method:** `DELETE`\
-**Description:** Delete a category.\
+**Description:** Delete a category.
 **Parameters:**
 
 - `category_id` (integer) - Required
@@ -189,7 +189,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/tasks`\
 **Method:** `GET`\
-**Description:** Retrieve all tasks for the logged-in user.\
+**Description:** Retrieve all tasks for the logged-in user.
 
 **Response:**
 
@@ -202,7 +202,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/tasks`\
 **Method:** `POST`\
-**Description:** Add a new task.\
+**Description:** Add a new task.
 **Parameters:**
 
 - `category_id` (integer) - Required
@@ -218,7 +218,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/tasks`\
 **Method:** `PUT`\
-**Description:** Edit an existing task.\
+**Description:** Edit an existing task.
 **Parameters:**
 
 - `task_id` (integer) - Required
@@ -233,7 +233,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/tasks`\
 **Method:** `DELETE`\
-**Description:** Delete a task.\
+**Description:** Delete a task.
 **Parameters:**
 
 - `task_id` (integer) - Required\
@@ -247,7 +247,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/tasks/complete`\
 **Method:** `POST`\
-**Description:** Mark a task as complete.\
+**Description:** Mark a task as complete.
 **Parameters:**
 
 - `task_id` (integer) - Required
@@ -261,7 +261,7 @@ All endpoints require a logged-in user session.
 
 **Endpoint:** `/tasks/undo`\
 **Method:** `POST`\
-**Description:** Undo a completed task.\
+**Description:** Undo a completed task.
 **Parameters:**\
 
 - `task_id` (integer) - Required\
