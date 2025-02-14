@@ -88,6 +88,8 @@ All endpoints require a logged-in user session.
 - `200 OK` - Registration successful
 - `400 Bad Request` - Invalid input or username/email taken
 
+
+
 ### Login
 **Endpoint:** `/login`
 **Method:** `POST`
