@@ -66,93 +66,57 @@ CREATE TABLE `tasks` (
 ```
 
 
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
+# API Documentation
+
+## Base URL
+`https://listyantidewi.pythonanywhere.com/`
+
+## Authentication
 All endpoints require a logged-in user session.
+
+### Register
+**Endpoint:** `/register`
+**Method:** `POST`
+**Description:** Register a new user.
+**Parameters:**
+- `username` (string) - Required
+- `password` (string) - Required
+- `confirmation` (string) - Must match `password`
+- `email` (string) - Required
+- `name` (string) - Required
+**Response:**
+- `200 OK` - Registration successful
+- `400 Bad Request` - Invalid input or username/email taken
+
+### Login
+**Endpoint:** `/login`
+**Method:** `POST`
+**Description:** Log in an existing user.
+**Parameters:**
+- `username` (string) - Required
+- `password` (string) - Required
+**Response:**
+- `200 OK` - Login successful
+- `403 Forbidden` - Invalid credentials
+
+### Logout
+**Endpoint:** `/logout`
+**Method:** `GET`
+**Description:** Log out the current user.
+**Response:**
+- `200 OK` - Successfully logged out
+
+## Categories
+
+### View Categories
+**Endpoint:** `/categories`
+**Method:** `GET`
+**Description:** Retrieve all categories for the logged-in user.
+**Response:**
+- `200 OK` - Returns a JSON list of categories
+- `404 Not Found` - No categories found
+
+### Add Category
 **Endpoint:** `/categories`
 **Method:** `POST`
 **Description:** Add a new category.
@@ -224,11 +188,11 @@ All endpoints require a logged-in user session.
 ### Complete Task
 **Endpoint:** `/tasks/complete`
 **Method:** `POST`
-**Description:** Mark a task as completed.
+**Description:** Mark a task as complete.
 **Parameters:**
 - `task_id` (integer) - Required
 **Response:**
-- `200 OK` - Task marked as completed
+- `200 OK` - Task marked as complete
 
 ### Undo Completed Task
 **Endpoint:** `/tasks/undo`
@@ -237,4 +201,4 @@ All endpoints require a logged-in user session.
 **Parameters:**
 - `task_id` (integer) - Required
 **Response:**
-- `200 OK` - Task marked as pending
+- `200 OK` - Task marked as not complete
