@@ -80,14 +80,15 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/register`\
 **Method:** `POST`\
 **Description:** Register a new user.\
-**Parameters:**\
+**Parameters:**
 
 - `username` (string) - Required
 - `password` (string) - Required
 - `confirmation` (string) - Must match `password`
 - `email` (string) - Required
 - `name` (string) - Required\
-  **Response:**\
+  
+**Response:**
 - `200 OK` - Registration successful
 - `400 Bad Request` - Invalid input or username/email taken
 
@@ -98,11 +99,12 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/login`\
 **Method:** `POST`\
 **Description:** Log in an existing user.\
-**Parameters:**\
+**Parameters:**
 
 - `username` (string) - Required
 - `password` (string) - Required\
-  **Response:**\
+  
+**Response:**
 - `200 OK` - Login successful
 - `403 Forbidden` - Invalid credentials
 
@@ -113,7 +115,8 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/logout`\
 **Method:** `GET`\
 **Description:** Log out the current user.\
-**Response:**\
+
+**Response:**
 
 - `200 OK` - Successfully logged out
 
@@ -126,7 +129,8 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/categories`\
 **Method:** `GET`\
 **Description:** Retrieve all categories for the logged-in user.\
-**Response:**\
+
+**Response:**
 
 - `200 OK` - Returns a JSON list of categories
 - `404 Not Found` - No categories found
@@ -138,10 +142,12 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/categories`\
 **Method:** `POST`\
 **Description:** Add a new category.\
-**Parameters:**\
+
+**Parameters:**
 
 - `category` (string) - Required\
-  **Response:**\
+
+**Response:**
 - `200 OK` - Category added successfully
 - `400 Bad Request` - Missing category name
 
@@ -152,11 +158,13 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/categories`\
 **Method:** `PUT`\
 **Description:** Edit an existing category.\
-**Parameters:**\
+
+**Parameters:**
 
 - `category_id` (integer) - Required
 - `new_name` (string) - Required
-  **Response:**\
+
+**Response:**
 - `200 OK` - Category updated successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_categoryv2.png)
@@ -166,10 +174,11 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/categories`\
 **Method:** `DELETE`\
 **Description:** Delete a category.\
-**Parameters:**\
+**Parameters:**
 
 - `category_id` (integer) - Required
-  **Response:**\
+
+**Response:**
 - `200 OK` - Category deleted successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_categoryv2.png)
@@ -181,7 +190,8 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/tasks`\
 **Method:** `GET`\
 **Description:** Retrieve all tasks for the logged-in user.\
-**Response:**\
+
+**Response:**
 
 - `200 OK` - Returns a JSON list of tasks
 - `404 Not Found` - No tasks found
@@ -193,11 +203,12 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/tasks`\
 **Method:** `POST`\
 **Description:** Add a new task.\
-**Parameters:**\
+**Parameters:**
 
 - `category_id` (integer) - Required
 - `task` (string) - Required\
-  **Response:**\
+
+**Response:**
 - `200 OK` - Task added successfully
 - `400 Bad Request` - Missing required parameters
 
@@ -212,7 +223,8 @@ All endpoints require a logged-in user session.
 
 - `task_id` (integer) - Required
 - `new_task` (string) - Required\
-  **Response:**\
+
+**Response:**
 - `200 OK` - Task updated successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_taskv2.png)
@@ -225,7 +237,8 @@ All endpoints require a logged-in user session.
 **Parameters:**
 
 - `task_id` (integer) - Required\
-  **Response:**\
+
+**Response:**
 - `200 OK` - Task deleted successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_taskv2.png)
@@ -235,10 +248,11 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/tasks/complete`\
 **Method:** `POST`\
 **Description:** Mark a task as complete.\
-**Parameters:**\
+**Parameters:**
 
 - `task_id` (integer) - Required
-  **Response:**\
+
+**Response:**
 - `200 OK` - Task marked as complete
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/complete_a_taskv2.png)
@@ -251,7 +265,8 @@ All endpoints require a logged-in user session.
 **Parameters:**\
 
 - `task_id` (integer) - Required\
-  **Response:**\
+
+**Response:**
 - `200 OK` - Task marked as not complete
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/uncomplete_a_taskv2.png)
