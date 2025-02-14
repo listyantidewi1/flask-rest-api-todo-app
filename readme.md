@@ -17,8 +17,8 @@
    `pip install Flask-Session`
 
 3. Flask MySQL
-	Gunakan perintah berikut di terminal untuk menginstall Flask MySQL Database
- 	`pip install flask-mysqldb`
+   Gunakan perintah berikut di terminal untuk menginstall Flask MySQL Database
+   `pip install flask-mysqldb`
 
 # Unduh dan Jalankan Kode Program
 
@@ -65,142 +65,169 @@ CREATE TABLE `tasks` (
 );
 ```
 
-
 # API Documentation
 
 ## Base URL
+
 `https://listyantidewi.pythonanywhere.com/`
 
 ## Authentication
+
 All endpoints require a logged-in user session.
 
 ### Register
+
 **Endpoint:** `/register`
 **Method:** `POST`
 **Description:** Register a new user.
 **Parameters:**
+
 - `username` (string) - Required
 - `password` (string) - Required
 - `confirmation` (string) - Must match `password`
 - `email` (string) - Required
 - `name` (string) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Registration successful
 - `400 Bad Request` - Invalid input or username/email taken
 
-
+`https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/registerv2.png`
 
 ### Login
+
 **Endpoint:** `/login`
 **Method:** `POST`
 **Description:** Log in an existing user.
 **Parameters:**
+
 - `username` (string) - Required
 - `password` (string) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Login successful
 - `403 Forbidden` - Invalid credentials
 
 ### Logout
+
 **Endpoint:** `/logout`
 **Method:** `GET`
 **Description:** Log out the current user.
 **Response:**
+
 - `200 OK` - Successfully logged out
 
 ## Categories
 
 ### View Categories
+
 **Endpoint:** `/categories`
 **Method:** `GET`
 **Description:** Retrieve all categories for the logged-in user.
 **Response:**
+
 - `200 OK` - Returns a JSON list of categories
 - `404 Not Found` - No categories found
 
 ### Add Category
+
 **Endpoint:** `/categories`
 **Method:** `POST`
 **Description:** Add a new category.
 **Parameters:**
+
 - `category` (string) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Category added successfully
 - `400 Bad Request` - Missing category name
 
 ### Edit Category
+
 **Endpoint:** `/categories`
 **Method:** `PUT`
 **Description:** Edit an existing category.
 **Parameters:**
+
 - `category_id` (integer) - Required
 - `new_name` (string) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Category updated successfully
 
 ### Delete Category
+
 **Endpoint:** `/categories`
 **Method:** `DELETE`
 **Description:** Delete a category.
 **Parameters:**
+
 - `category_id` (integer) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Category deleted successfully
 
 ## Tasks
 
 ### View Tasks
+
 **Endpoint:** `/tasks`
 **Method:** `GET`
 **Description:** Retrieve all tasks for the logged-in user.
 **Response:**
+
 - `200 OK` - Returns a JSON list of tasks
 - `404 Not Found` - No tasks found
 
 ### Add Task
+
 **Endpoint:** `/tasks`
 **Method:** `POST`
 **Description:** Add a new task.
 **Parameters:**
+
 - `category_id` (integer) - Required
 - `task` (string) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Task added successfully
 - `400 Bad Request` - Missing required parameters
 
 ### Edit Task
+
 **Endpoint:** `/tasks`
 **Method:** `PUT`
 **Description:** Edit an existing task.
 **Parameters:**
+
 - `task_id` (integer) - Required
 - `new_task` (string) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Task updated successfully
 
 ### Delete Task
+
 **Endpoint:** `/tasks`
 **Method:** `DELETE`
 **Description:** Delete a task.
 **Parameters:**
+
 - `task_id` (integer) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Task deleted successfully
 
 ### Complete Task
+
 **Endpoint:** `/tasks/complete`
 **Method:** `POST`
 **Description:** Mark a task as complete.
 **Parameters:**
+
 - `task_id` (integer) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Task marked as complete
 
 ### Undo Completed Task
+
 **Endpoint:** `/tasks/undo`
 **Method:** `POST`
 **Description:** Undo a completed task.
 **Parameters:**
+
 - `task_id` (integer) - Required
-**Response:**
+  **Response:**
 - `200 OK` - Task marked as not complete
