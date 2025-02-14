@@ -106,6 +106,8 @@ All endpoints require a logged-in user session.
 - `200 OK` - Login successful
 - `403 Forbidden` - Invalid credentials
 
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/loginv2.png)
+
 ### Logout
 
 **Endpoint:** `/logout`
@@ -114,6 +116,8 @@ All endpoints require a logged-in user session.
 **Response:**
 
 - `200 OK` - Successfully logged out
+
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/logoutv2.png)
 
 ## Categories
 
@@ -127,6 +131,8 @@ All endpoints require a logged-in user session.
 - `200 OK` - Returns a JSON list of categories
 - `404 Not Found` - No categories found
 
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_categoriesv2.png)
+
 ### Add Category
 
 **Endpoint:** `/categories`
@@ -138,6 +144,8 @@ All endpoints require a logged-in user session.
   **Response:**
 - `200 OK` - Category added successfully
 - `400 Bad Request` - Missing category name
+
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_categoryv2.png)
 
 ### Edit Category
 
@@ -151,6 +159,8 @@ All endpoints require a logged-in user session.
   **Response:**
 - `200 OK` - Category updated successfully
 
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_categoryv2.png)
+
 ### Delete Category
 
 **Endpoint:** `/categories`
@@ -161,6 +171,8 @@ All endpoints require a logged-in user session.
 - `category_id` (integer) - Required
   **Response:**
 - `200 OK` - Category deleted successfully
+
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_categoryv2.png)
 
 ## Tasks
 
@@ -173,6 +185,8 @@ All endpoints require a logged-in user session.
 
 - `200 OK` - Returns a JSON list of tasks
 - `404 Not Found` - No tasks found
+
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/view_all_tasksv2.png)
 
 ### Add Task
 
@@ -187,6 +201,8 @@ All endpoints require a logged-in user session.
 - `200 OK` - Task added successfully
 - `400 Bad Request` - Missing required parameters
 
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/add_new_taskv2.png)
+
 ### Edit Task
 
 **Endpoint:** `/tasks`
@@ -199,6 +215,8 @@ All endpoints require a logged-in user session.
   **Response:**
 - `200 OK` - Task updated successfully
 
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_taskv2.png)
+
 ### Delete Task
 
 **Endpoint:** `/tasks`
@@ -209,6 +227,8 @@ All endpoints require a logged-in user session.
 - `task_id` (integer) - Required
   **Response:**
 - `200 OK` - Task deleted successfully
+
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_taskv2.png)
 
 ### Complete Task
 
@@ -221,6 +241,8 @@ All endpoints require a logged-in user session.
   **Response:**
 - `200 OK` - Task marked as complete
 
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/complete_a_taskv2.png)
+
 ### Undo Completed Task
 
 **Endpoint:** `/tasks/undo`
@@ -231,3 +253,5 @@ All endpoints require a logged-in user session.
 - `task_id` (integer) - Required
   **Response:**
 - `200 OK` - Task marked as not complete
+
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/uncomplete_a_taskv2.png)
