@@ -211,7 +211,7 @@ All endpoints require a logged-in user session.
 **Parameters:**
 
 - `category_id` (integer) - Required
-- `task` (string) - Required\
+- `task` (string) - Required
 
 **Response:**
 
@@ -271,7 +271,7 @@ All endpoints require a logged-in user session.
 **Endpoint:** `/tasks/undo`\
 **Method:** `POST`\
 **Description:** Undo a completed task.
-**Parameters:**\
+**Parameters:**
 
 - `task_id` (integer) - Required
 
