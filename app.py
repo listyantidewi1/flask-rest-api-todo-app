@@ -3,20 +3,23 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 import MySQLdb
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+
 # MySQL configuration
 db_config = {
-    "host": "your mysql server host address",
-    "user": "your username",
-    "password": "your password",
-    "database": "your database name"
+    "host": "listyantidewi.mysql.pythonanywhere-services.com",
+    "user": "listyantidewi",
+    "password": "SMKbisa1234",
+    "database": "listyantidewi$todo"
 }
 
 def get_db_connection():
@@ -81,23 +84,23 @@ def login():
     cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
     user = cursor.fetchone()
     conn.close()
-    
+
     if not user or not check_password_hash(user["password"], password):
         return "Invalid username or password", 403
-    
+
     session["user_id"] = user["id"]
     session["name"] = user["name"]
-    return "Login successful", 200
+    return jsonify("login sucessful", session["user_id"], session["name"]), 200
 
 @app.route("/logout")
 def logout():
     session.clear()
     return "Logged out successfully", 200
-    
+
 
 # Categories CRUD
 
-# add category    
+# add category
 @app.route("/categories", methods=["POST"])
 @login_required
 def add_category():
@@ -127,37 +130,37 @@ def view_categories():
     if not categories:
         return "No categories found", 404
     return jsonify(categories), 200
-    
-    
+
+
 # edit a category
 @app.route("/categories", methods=["PUT"])
 @login_required
 def edit_category():
     category_id = request.form.get("category_id")
     new_name = request.form.get("new_name")
-    
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("UPDATE categories SET category = %s WHERE id = %s AND user_id = %s", (new_name, category_id, session["user_id"]))
     conn.commit()
     conn.close()
     return "Category updated successfully", 200
-    
+
 
 # delete a category
 @app.route("/categories", methods=["DELETE"])
 @login_required
 def delete_category():
     category_id = request.form.get("category_id")
-    
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM categories WHERE id = %s AND user_id = %s", (category_id, session["user_id"]))
     conn.commit()
     conn.close()
     return "Category deleted successfully", 200
-    
-    
+
+
 # Tasks CRUD
 
 # add new task
@@ -178,7 +181,7 @@ def add_task():
     conn.close()
 
     return "Task added successfully", 200
-    
+
 # view all tasks
 @app.route("/tasks", methods=["GET"])
 @login_required
@@ -191,14 +194,14 @@ def view_tasks():
     if not tasks:
         return "No tasks found", 404
     return jsonify(tasks), 200
-    
+
 # edit a task
 @app.route("/tasks", methods=["PUT"])
 @login_required
 def edit_task():
     task_id = request.form.get("task_id")
     new_task = request.form.get("new_task")
-    
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("UPDATE tasks SET task = %s WHERE id = %s AND user_id = %s", (new_task, task_id, session["user_id"]))
@@ -212,7 +215,7 @@ def edit_task():
 @login_required
 def delete_task():
     task_id = request.form.get("task_id")
-    
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM tasks WHERE id = %s AND user_id = %s", (task_id, session["user_id"]))
@@ -237,36 +240,36 @@ def complete_task():
 
     if not task:
         conn.close()
-        return "Task not found", 404  
+        return "Task not found", 404
 
     # Update query allows both empty ('') and 'pending' status
     cursor.execute("UPDATE tasks SET status = 'complete' WHERE id = %s AND user_id = %s AND (status = '' OR status = 'not complete')", (task_id, session["user_id"]))
     conn.commit()
 
-    print(f"Rows Affected: {cursor.rowcount}")  
+    print(f"Rows Affected: {cursor.rowcount}")
 
     if cursor.rowcount == 0:
         conn.close()
-        return "Task update failed", 400  
+        return "Task update failed", 400
 
     conn.close()
     return "Task marked as 'complete'", 200
 
 
-    
+
 # Undo a completed task
 @app.route("/tasks/undo", methods=["POST"])
 @login_required
 def undo_task():
     task_id = request.form.get("task_id")
-    
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("UPDATE tasks SET status = 'not complete' WHERE id = %s AND user_id = %s", (task_id, session["user_id"]))
     conn.commit()
     conn.close()
     return "Task marked as 'not complete'", 200
-    
+
 
 if __name__ == "__main__":
     app.run(debug=True)
