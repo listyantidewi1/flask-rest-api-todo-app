@@ -87,8 +87,9 @@ All endpoints require a logged-in user session.
 - `confirmation` (string) - Must match `password`
 - `email` (string) - Required
 - `name` (string) - Required
-  
+
 **Response:**
+
 - `200 OK` - Registration successful
 - `400 Bad Request` - Invalid input or username/email taken
 
@@ -103,12 +104,13 @@ All endpoints require a logged-in user session.
 
 - `username` (string) - Required
 - `password` (string) - Required
-  
-**Response:**
-- `200 OK` - Login successful
+
+**Response: JSON**
+
+- `200 OK` - Login successful, session(user_id), session(name)
 - `403 Forbidden` - Invalid credentials
 
-![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/loginv2.png)
+![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/loginv3.png)
 
 ### Logout
 
@@ -148,6 +150,7 @@ All endpoints require a logged-in user session.
 - `category` (string) - Required
 
 **Response:**
+
 - `200 OK` - Category added successfully
 - `400 Bad Request` - Missing category name
 
@@ -165,6 +168,7 @@ All endpoints require a logged-in user session.
 - `new_name` (string) - Required
 
 **Response:**
+
 - `200 OK` - Category updated successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_categoryv2.png)
@@ -179,6 +183,7 @@ All endpoints require a logged-in user session.
 - `category_id` (integer) - Required
 
 **Response:**
+
 - `200 OK` - Category deleted successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_categoryv2.png)
@@ -209,6 +214,7 @@ All endpoints require a logged-in user session.
 - `task` (string) - Required\
 
 **Response:**
+
 - `200 OK` - Task added successfully
 - `400 Bad Request` - Missing required parameters
 
@@ -225,6 +231,7 @@ All endpoints require a logged-in user session.
 - `new_task` (string) - Required
 
 **Response:**
+
 - `200 OK` - Task updated successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/edit_taskv2.png)
@@ -239,6 +246,7 @@ All endpoints require a logged-in user session.
 - `task_id` (integer) - Required
 
 **Response:**
+
 - `200 OK` - Task deleted successfully
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/delete_taskv2.png)
@@ -253,6 +261,7 @@ All endpoints require a logged-in user session.
 - `task_id` (integer) - Required
 
 **Response:**
+
 - `200 OK` - Task marked as complete
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/complete_a_taskv2.png)
@@ -267,6 +276,7 @@ All endpoints require a logged-in user session.
 - `task_id` (integer) - Required
 
 **Response:**
+
 - `200 OK` - Task marked as not complete
 
 ![register](https://github.com/listyantidewi1/flask-rest-api-todo-app/blob/main/static/images/uncomplete_a_taskv2.png)
